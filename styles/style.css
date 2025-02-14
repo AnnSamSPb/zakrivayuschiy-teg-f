@@ -4,13 +4,252 @@
 ✦ like-icon — для svg-иконки анимированного сердца
 ✦ card__like-button — для кнопки Like рядом с иконкой
 ✦ card__icon-button — для кнопки, оборачивающей иконку
-✦ card__icon-button — для кнопки, оборачивающей иконку
 ✦ is-liked — для обозначения состояния лайкнутой иконки в виде сердца
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
+/*Mobile First*/
 
 .page {
+  display: grid;
+  justify-items: center;
   min-inline-size: 320px;
   min-block-size: 100dvb;
+  font-family: Arial, sans-serif;
+  font-size: 18px;/*ввести переменную*/
+  color: var(--text-color, rgb(0 0 0));
+  background-color: var(--background-color, rgb(255 255 255));
+  background-image: var(--background-image);
+  background-size: cover;
+  background-attachment: fixed;
 }
+
+@supports (font-variation-settings: normal) {
+  .page {
+    font-family: var(--font-family-main, sans-serif);
+  }
+}
+
+/* Header */
+
+.header {
+  display: grid;
+  justify-items: center;
+  margin-block: 100px;
+  inline-size: var(--content-inline-size, min(100%, 700px));
+  padding: 
+    clamp(7.5rem, 7.3571rem + .7143vw, 8rem) 
+    clamp(.875rem, -1.0268rem + 9.5089vw, 7.53125rem);
+  border: 2px solid currentColor;
+  font-family: var(--font-family-accent, sans-serif);
+  background-color: inherit;/*уточнить значение*/
+}
+
+.header__title {
+  font-size: clamp(3.0625rem, 2.7768rem + 1.4286vw, 4.0625rem);
+  padding-block-end: 20px;
+}
+
+.header__subtitle {
+  font-size: clamp(.875rem, .7143rem + .8036vw, 1.4375rem);
+}
+
+/*Main*/
+
+.button {
+  position: relative;
+  display: flex;
+  border: 2px solid var(--text-color, rgb(0 0 0));
+  padding-inline: 20px;
+  padding-block: 15px;
+  background-color: var(--background-color, rgb(255 255 255));
+  cursor: pointer;
+  transition:
+    box-shadow var(--time-animation, 0.3s) ease,
+    inline-size .5s linear;
+
+}
+
+.button__text {
+  font-family: var(--font-family-accent, sans-serif);
+  font-weight: var(--font-weight-normal, 400);
+  font-size: 14px;
+  line-height: .9;
+  color: var(--text-color, rgb(0 0 0));
+  mix-blend-mode: hard-light;
+}
+
+.button__save {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding-block: 15px;
+  block-size: 100%;
+  max-inline-size: 306;
+  /*color: var(--text-color, rgb(0 0 0));*/
+}
+
+.floppy-icon {
+  block-size: 28px;
+}
+
+.content {
+  display: grid;
+  justify-items: center;
+  row-gap: 50px;
+  padding-block-end: 100px;
+  inline-size: var(--content-inline-size, min(100%, 700px));
+  font-variation-settings: 'wght' var(--font-weight-normal, 400);
+}
+
+.content__cards {
+  display: grid;
+  gap: 50px;
+}
+
+.card {
+  border: 2px solid currentColor;
+  overflow: hidden;
+  inline-size: 100%;
+  background-color: var(--background-color, rgb(255 255 255));
+}
+
+.card__title {
+  padding-inline: 10px;
+  padding-block: 3px;
+  font-size: inherit;
+  line-height: 1.21;
+  font-variation-settings: 'wght' var(--font-wght-bold, 700);
+  min-block-size: 33px;
+}
+
+.card__image-container {
+  position: relative;
+  border-block-start: 2px solid currentColor;
+  border-block-end: 2px solid currentColor;
+}
+
+.card__watermark {
+  position: absolute;
+  z-index: 1;
+  opacity: .5;
+  inset-inline-end: clamp(.813rem, .598rem + 1.07vw, 1.563rem);
+  inset-block-start: 25px;
+  font-family: var(--font-family-accent, sans-serif);
+  font-weight: 400;
+  font-size: 14px;/*ввести переменную*/
+  line-height: 1;
+  color: var(--text-color);/*уточнить необходимость*/
+  text-shadow:
+    -1px 0 var(--background-color, rgb(255 255 255)),
+    1px 0 var(--background-color, rgb(255 255 255)),
+    0 1px var(--background-color, rgb(255 255 255)),
+    0 -1px var(--background-color, rgb(255 255 255));
+  background-blend-mode: hard-light;
+}
+
+@supports 
+  (text-stroke: 1px var(--background-color, rgb(255 255 255))) or
+  (-webkit-text-stroke: 1px var(--background-color, rgb(255 255 255))) {
+    .card__watermark {
+      text-shadow: none;
+      -webkit-text-stroke: 1px var(--background-color, rgb(255 255 255));
+      text-stroke: 1px var(--background-color, rgb(255 255 255));
+    }
+}
+
+.card__image {
+  display: block;
+  inline-size: 100%;
+  object-fit: cover;
+  object-position: center;
+  aspect-ratio: 1/1;
+}
+
+.card__image--brightness {
+  filter: brightness(200%);
+}
+
+.card__image--contrast {
+  filter: contrast(60%);
+}
+
+.card__image--opacity {
+  filter: opacity(.7);
+}
+
+.card__image--grayscale {
+  filter: grayscale(.7);
+}
+
+.card__image--saturate {
+  filter: saturate(150%);
+}
+
+.card__image--hue-rotate {
+  filter: hue-rotate(120deg);
+}
+
+.card__image--multi-filter {
+  filter: sepia(70%) invert(65%) contrast(60%);
+}
+
+.card__content-container {}
+
+.card__text-container {
+  display: grid;
+  row-gap: 27px;
+  margin-inline: 25px;
+  margin-block: 25px;
+}
+
+.card__text {
+  line-height: 1.17;
+}
+
+.card__actions-container {
+  display: flex;
+  justify-content: end;
+  margin-inline: 25px;
+  margin-block: 25px;
+}
+
+.card__icon-button {
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  background-color: transparent;
+  border: 2px solid transparent;
+  max-block-size: 38px;
+  inline-size: 38px;
+}
+
+.card__like-button {
+  align-items: center;
+  justify-content: center;
+  padding-inline: 17px;
+  padding-block: 9px;
+  min-inline-size: 130px;
+  min-block-size: 38px;
+}
+
+
+
+@media (width >= 460px) {
+  .button__save {
+    max-inline-size: 335px;
+  }
+
+  .floppy-icon {
+    block-size: 21px;
+  }
+}
+
+
+
+
+/*
+сжимается svg в модалке - если флекс, то попробуй для класса иконки в модалке задать flex-shrink: 0; - запрещение сжиматься
+*/
