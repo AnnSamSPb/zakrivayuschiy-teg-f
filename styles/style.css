@@ -31,16 +31,15 @@
   }
 }
 
+.page__section-size {
+  inline-size: var(--content-inline-size, min(100%, 700px));
+}
+
 /* Header */
 
 .header {
   display: grid;
   justify-items: center;
-  /**/
-  inline-size: var(--content-inline-size, min(100%, 700px));
-  /*на мобильном устройстве — растяните секцию на всю ширину. 
-  Для реализации этой ширины удобно внедрить дополнительный класс, 
-  а размер вынести в переменную.*/
   margin-block: 100px;
   padding: 
     clamp(7.5rem, 7.3571rem + .7143vw, 8rem) 
@@ -73,7 +72,6 @@
 .content__cards {
   display: grid;
   gap: 50px;
-  inline-size: var(--content-inline-size, min(100%, 700px));
 }
 
 .card {
@@ -103,19 +101,18 @@
   position: absolute;
   z-index: 1;
   opacity: .5;
-  inset-inline-end: clamp(0.6875rem, 0.4375rem + 1.25vw, 1.5625rem);
-  inset-block-start: 23px;
+  inset-inline-end: clamp(0.6875rem, .4375rem + 1.25vw, 1.5625rem);
+  inset-block-start: clamp(1.438rem, 1.402rem + .18vw, 1.563rem);
   font-family: var(--font-family-accent, sans-serif);
-  font-weight: 400;
-  font-size: 14px;/*ввести переменную*/
+  font-weight: var(--font-weight-normal, 400);
+  font-size: var(--font-size-decor, 14px);
   line-height: 1;
-  color: var(--text-color);/*уточнить необходимость*/
   text-shadow:
     -1px 0 var(--background-color, rgb(255 255 255)),
     1px 0 var(--background-color, rgb(255 255 255)),
     0 1px var(--background-color, rgb(255 255 255)),
     0 -1px var(--background-color, rgb(255 255 255));
-  background-blend-mode: hard-light;
+  mix-blend-mode: hard-light;
 }
 
 @supports 
@@ -136,35 +133,33 @@
   aspect-ratio: 1/1;
 }
 
-.card__image--brightness {
+.card__image-brightness {
   filter: brightness(200%);
 }
 
-.card__image--contrast {
+.card__image-contrast {
   filter: contrast(60%);
 }
 
-.card__image--opacity {
+.card__image-opacity {
   filter: opacity(.7);
 }
 
-.card__image--grayscale {
+.card__image-grayscale {
   filter: grayscale(.7);
 }
 
-.card__image--saturate {
+.card__image-saturate {
   filter: saturate(150%);
 }
 
-.card__image--hue-rotate {
+.card__image-hue-rotate {
   filter: hue-rotate(120deg);
 }
 
-.card__image--multi-filter {
+.card__image-multi-filter {
   filter: sepia(70%) invert(65%) contrast(60%);
 }
-
-/*.card__content-container {}*/
 
 .card__text-container {
   display: grid;
@@ -191,13 +186,18 @@
   display: grid;
   justify-content: center;
   align-content: center;
-  inline-size: 27px;
+  inline-size: 39px;
+  block-size: 38px;
   padding: 0;
   background-color: transparent;
   border: 2px solid transparent;
-  mix-blend-mode: normal;
+  transition: border var(--time-animation, 0.3s) ease;
   cursor: pointer;
   appearance: none;
+}
+
+.card__icon-button:focus-visible {
+  border: 2px solid var(--text-color, rgb(0 0 0));
 }
 
 .like-icon {
@@ -218,19 +218,46 @@
   position: relative;
   border: 2px solid var(--text-color, rgb(0 0 0));
   background-color: var(--background-color, rgb(255 255 255));
+  font-family: var(--font-family-accent, sans-serif);
+  font-weight: var(--font-weight-normal, 400);
+  font-size: var(--font-size-decor);
+  line-height: .9;
   cursor: pointer;
   transition:
     box-shadow var(--time-animation, 0.3s) ease,
-    inline-size .5s linear;
+    inline-size var(--time-long, .5s) linear;
+}
 
+.button::after {
+  content: '';
+    position: absolute;
+    display: block;
+    background-color: var(--text-color, rgb(0 0 0));
+    transition: transform var(--time-long, 0.5s) ease-in-out;
+    transform: scaleX(0);
+    transform-origin: left;
+    block-size: 100%;
+    inline-size: 100%;
+}
+
+.button:hover::after {
+    transform: scaleX(1);
+  }
+
+.button:focus,
+.card__icon-button:focus {
+  outline: none;
+}
+
+.button:focus-visible {
+  box-shadow: 2px 2px 0px var(--text-color, rgb(0 0 0));
 }
 
 .button__text {
-  font-family: var(--font-family-accent, sans-serif);
-  font-weight: var(--font-weight-normal, 400);
-  font-size: 14px;
-  line-height: .9;
-  color: var(--text-color, rgb(0 0 0));
+  position: relative;
+  color: var(--background-color, rgb(255 255 255));
+  mix-blend-mode: difference;
+  z-index: 1;
 }
 
 .button__save {
@@ -246,7 +273,11 @@
 }
 
 .floppy-icon {
+  position: relative;
   block-size: 28px;
+  color: var(--background-color, rgb(255 255 255));
+  mix-blend-mode: difference;
+  z-index: 1;
 }
 
 

@@ -8,7 +8,7 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-@keyframes fireworks {
+@keyframes heart {
     from {
         transform-origin: center;
         scale: 1;
@@ -30,12 +30,32 @@
     }
 }
 
+.like-icon__contour {
+    fill: var(--text-color, rgb(0 0 0));
+    transition: fill 0.1s linear;
+}
+
+.like-icon__main-body {
+    fill: var(--background-color, rgb(255 255 255));
+    transition: fill var(--time-animation, 0.3s) ease;
+}
+
+.like-icon__core {
+    fill: var(--background-color, rgb(255 255 255));
+    transition: fill var(--time-animation, 0.3s) 0.03s ease;
+}
+
+.like-icon__sparks {
+    fill: var(--heart-fill-color, rgb(255 0 0));
+    opacity: 0;
+}
+
 .like-icon:is(:hover) .like-icon__core {
     fill: var(--text-color, rgb(0 0 0));
     transition: fill var(--time-animation, 0.3s) ease;
 }
   
-.like-icon:is(:hover) .like-icon__body {
+.like-icon:is(:hover) .like-icon__main-body {
     fill: var(--text-color, rgb(0 0 0));
     transition: fill var(--time-animation, 0.3s) 0.05s ease;
 }
@@ -45,19 +65,9 @@
     transition: fill var(--time-animation, 0.3s) ease;
 }
 
-.like-icon:is(:active) .like-icon__body {
+.like-icon:is(:active) .like-icon__main-body {
     fill: var(--heart-fill-color, rgb(255 0 0));
     transition: fill var(--time-animation, 0.3s) 0.05s ease;
-}
-
-.like-icon__core {
-    fill: var(--background-color, rgb(255 255 255));
-    transition: fill var(--time-animation, 0.3s) 0.03s ease;
-}
-
-.like-icon__body {
-    fill: var(--background-color, rgb(255 255 255));
-    transition: fill var(--time-animation, 0.3s) ease;
 }
 
 .like-icon.is-liked .like-icon__core {
@@ -65,7 +75,7 @@
     transition: fill var(--time-animation, 0.3s) ease;
 }
 
-.like-icon.is-liked .like-icon__body {
+.like-icon.is-liked .like-icon__main-body {
     fill: var(--heart-fill-color, rgb(255 0 0));
     transition: fill var(--time-animation, 0.3s) 0.05s ease;
 }
@@ -75,24 +85,10 @@
     transition: fill var(--time-animation, 0.3s) 0.06s ease;
 }
 
-.like-icon.is-liked .like-icon__elements {
-    animation: fireworks var(--time-animation) ease-in 0.1s;
+.like-icon.is-liked .heart {
+    animation: heart var(--time-animation) ease-in 0.1s;
 }
 
 .like-icon.is-liked .like-icon__sparks {
     animation: sparks var(--time-animation) ease-in 0.2s;
 }
-
-.like-icon__contour {
-    fill: var(--text-color, rgb(0 0 0));
-    transition: fill 0.1s linear;
-}
-
-.like-icon__sparks {
-    fill: var(--heart-fill-color, rgb(255 0 0));
-    opacity: 0;
-}
-
-
-
-
