@@ -1,12 +1,13 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
     --content-inline-size: min(100%, 700px);
-    --botton-inline-size: min(306px, 335px)
 
     --font-family-main: 'Inter-Variable';
     --font-family-accent: 'PressStart2P';
     --font-weight-normal: 400;
     --font-weight-bold: 700;
+    --font-size-main: 18px;
+    --font-size-decor: 14px;
 
     --text-color: rgb(0 0 0);/*#000*/
 
@@ -16,27 +17,27 @@
     --background-transparent-line: rgb(211 211 211 / 0);
     --background-gradient-start: rgb(231 231 231);
     --background-gradient-end: rgb(26 26 26);
+    --background-vertical-lines:
+        repeating-linear-gradient(
+        90deg,
+        var(--background-line-color) 0 2px,
+        var(--background-transparent-line) 2px 4px
+    );
     --background-horizontal-lines:
         repeating-linear-gradient(
             var(--background-line-color) 0 2px,
             var(--background-transparent-line) 2px 4px
         );
-    --background-vertical-lines:
-        repeating-linear-gradient(
-            90deg,
-            var(--background-line-color) 0 2px,
-            var(--background-transparent-line) 2px 4px
-        );
     --background-underlay-gradient:
         linear-gradient(
-            var(--background-gradient-start),
+            var(--background-gradient-start) 0.01%,
             var(--background-gradient-end)
         );
 
     --background-color: rgb(255 255 255); /*#fff*/
     --background-image:
+        var(--background-vertical-lines),    
         var(--background-horizontal-lines),
-        var(--background-vertical-lines),
         var(--background-underlay-gradient);
     
     --time-animation: 0.3s;
