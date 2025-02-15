@@ -65,7 +65,7 @@
 .content {
   display: grid;
   justify-items: center;
-  row-gap: 52px;
+  row-gap: 50px;
   padding-block-end: 100px;
   font-variation-settings: 'wght' var(--font-weight-normal, 400);
 }
@@ -200,81 +200,9 @@
   appearance: none;
 }
 
-/**/
 .like-icon {
   display: block;
 }
-
-/*.like-icon:hover {*/
-.like-icon:is(:hover) .like-icon__core {
-  fill: var(--text-color, rgb(0 0 0));
-  transition: fill var(--time-animation, 0.3s) ease;
-}
-
-.like-icon:is(:hover) .like-icon__body {
-  fill: var(--text-color, rgb(0 0 0));
-  transition: fill var(--time-animation, 0.3s) 0.05s ease;
-}
-/*}*/
-
-/*.like-icon:active {*/
-.like-icon:is(:active) .like-icon__core {
-  fill: var(--heart-fill-color, rgb(255 0 0));
-  transition: fill var(--time-animation, 0.3s) ease;
-}
-
-.like-icon:is(:active) .like-icon__body {
-  fill: var(--heart-fill-color, rgb(255 0 0));
-  transition: fill var(--time-animation, 0.3s) 0.05s ease;
-}
-/*}*/
-
-.like-icon__core {
-  fill: var(--background-color, rgb(255 255 255));
-  transition: fill var(--time-animation, 0.3s) 0.03s ease;
-}
-
-.like-icon__body {
-  fill: var(--background-color, rgb(255 255 255));
-  transition: fill var(--time-animation, 0.3s) ease;
-}
-
-/*.like-icon.is-liked {*/
-.like-icon.is-liked .like-icon__core {
-  fill: var(--heart-fill-color, rgb(255 0 0));
-  transition: fill var(--time-animation, 0.3s) ease;
-}
-
-.like-icon.is-liked .like-icon__body {
-  fill: var(--heart-fill-color, rgb(255 0 0));
-  transition: fill var(--time-animation, 0.3s) 0.05s ease;
-}
-
-.like-icon.is-liked .like-icon__contour {
-  fill: var(--heart-fill-color, rgb(255 0 0));
-  transition: fill var(--time-animation, 0.3s) 0.06s ease;
-}
-
-.like-icon.is-liked .like-icon__elements {
-  animation: fireworks var(--time-animation) ease-in 0.1s;
-}
-/*}*/
-
-.like-icon.is-liked .like-icon__sparks {
-  animation: sparks var(--time-animation) ease-in 0.2s;
-}
-
-.like-icon__contour {
-  fill: var(--text-color, rgb(0 0 0));
-  transition: fill 0.1s linear;
-}
-
-.like-icon__sparks {
-  fill: var(--heart-fill-color, rgb(255 0 0));
-  opacity: 0;
-}
-
-/**/
 
 .card__like-button {
   display: flex;
