@@ -8,7 +8,7 @@
 ✦ button__text — для обозначения текстового элемента внутри кнопки
 
 */
-/*Mobile First*/
+/*Desktop First*/
 
 .page {
   display: grid;
@@ -71,7 +71,7 @@
 
 .content__cards {
   display: grid;
-  gap: 50px;
+  gap: 52px;
 }
 
 .card {
@@ -133,32 +133,32 @@
   aspect-ratio: 1/1;
 }
 
-.card__image-brightness {
-  filter: brightness(200%);
+.card__filter-blur {
+  filter: blur(5px);
 }
 
-.card__image-contrast {
-  filter: contrast(60%);
+.card__filter-saturate {
+  filter: saturate(500%)
 }
 
-.card__image-opacity {
-  filter: opacity(.7);
+.card__filter-invert {
+  filter: invert(1)
 }
 
-.card__image-grayscale {
-  filter: grayscale(.7);
-}
-
-.card__image-saturate {
-  filter: saturate(150%);
-}
-
-.card__image-hue-rotate {
+.card__filter-huerotate {
   filter: hue-rotate(120deg);
 }
 
-.card__image-multi-filter {
-  filter: sepia(70%) invert(65%) contrast(60%);
+.card__filter-sepia {
+  filter: sepia(80%)
+}
+
+.card__filter-contrast {
+  filter: contrast(60%);
+}
+
+.card__filter-multi {
+  filter: hue-rotate(120deg) contrast(60%) sepia(40%) ;
 }
 
 .card__text-container {
@@ -176,7 +176,7 @@
   display: flex;
   justify-self: end;
   align-items: center;
-  gap: 12px;
+  gap: 6px;
   margin-inline: 25px;
   margin-block: 23px;
   padding: 0;
@@ -200,10 +200,6 @@
   border: 2px solid var(--text-color, rgb(0 0 0));
 }
 
-.like-icon {
-  display: block;
-}
-
 .card__like-button {
   display: flex;
   align-items: center;
@@ -214,13 +210,17 @@
   min-block-size: 38px;
 }
 
+.like-icon {
+  display: block;
+}
+
 .button {
   position: relative;
   border: 2px solid var(--text-color, rgb(0 0 0));
   background-color: var(--background-color, rgb(255 255 255));
   font-family: var(--font-family-accent, sans-serif);
   font-weight: var(--font-weight-normal, 400);
-  font-size: var(--font-size-decor);
+  font-size: var(--font-size-decor, 14px);
   line-height: .9;
   cursor: pointer;
   transition:
@@ -231,6 +231,7 @@
 .button::after {
   content: '';
     position: absolute;
+    inset: 0;
     display: block;
     background-color: var(--text-color, rgb(0 0 0));
     transition: transform var(--time-long, 0.5s) ease-in-out;
@@ -262,39 +263,88 @@
 
 .button__save {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 8px;
+  padding-inline: 19px;
   padding-block: 15px;
-  block-size: 100%;
-  max-inline-size: 306;
-  /*color: var(--text-color, rgb(0 0 0));*/
+  max-inline-size: 337px;
 }
 
 .floppy-icon {
   position: relative;
-  block-size: 28px;
+  block-size: 21px;
+  inline-size: 21px;
   color: var(--background-color, rgb(255 255 255));
   mix-blend-mode: difference;
   z-index: 1;
 }
 
+.dialog[open] {
+  display: grid;
+  grid-template-rows: min-content min-content;
+  gap: 30px;
+  border: 2px solid var(--text-color, rgb(0 0 0));
+  padding-inline: 30px;
+  padding-block: 30px;
+  overflow: hidden;
+  background-color: var(--background-color, rgb(255 255 255));
+  inline-size: 100%;
+  max-inline-size: 357px;
+  position: fixed;
+  inset: 0;
+}
 
+.dialog::backdrop {
+  background-color: var(--backdrop-color, rgb(0 0 0 / 0.75));
+}
 
-@media (width >= 460px) {
-  .button__save {
-    max-inline-size: 335px;
-  }
+.dialog__floppy {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
 
-  .floppy-icon {
-    block-size: 21px;
-  }
+.dialog__floppy-icon {
+  inline-size: 39px;
+  block-size: 39px;
+}
+
+.dialog__text {
+  color: var(--text-color, rgb(0 0 0));
+  font-family: var(--font-family-accent, sans-serif);
+  font-weight: var(--font-weight-normal, 400);
+  font-size: 14px;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.accept-button {
+  block-size: 38px;
+  inline-size: 100%;
+}
+
+.accept-button:has(.button__text) {
+  text-transform: uppercase;
+}
+
+.dialog:not([open]) {
+  display: none;
 }
 
 
+@media (width <= 375px) {
+  .button__save {
+    max-inline-size: 306px;
+    flex-direction: column;
+  }
 
+  .floppy-icon {
+    block-size: 28px;
+  }
 
-/*
-сжимается svg в модалке - если флекс, то попробуй для класса иконки в модалке задать flex-shrink: 0; - запрещение сжиматься
-*/
+  .dialog[open] {
+    padding-inline: 40px;
+    max-inline-size: 341px;
+  }
+}

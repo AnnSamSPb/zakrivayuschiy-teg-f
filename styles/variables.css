@@ -10,8 +10,8 @@
     --font-size-decor: 14px;
 
     --text-color: rgb(0 0 0);/*#000*/
-
     --heart-fill-color: rgb(255 0 0);/*#f00*/
+    --backdrop-color: rgb(0 0 0 / 0.75);
 
     --background-line-color: rgb(211 211 211);
     --background-transparent-line: rgb(211 211 211 / 0);
