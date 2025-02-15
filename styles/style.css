@@ -25,11 +25,11 @@
   background-attachment: fixed;
 }
 
-@supports (font-variation-settings: normal) {
+/*@supports (font-variation-settings: normal) {
   .page {
     font-family: var(--font-family-main);
   }
-}
+}*/
 
 .page__section-size {
   inline-size: var(--content-inline-size, min(100%, 700px));
