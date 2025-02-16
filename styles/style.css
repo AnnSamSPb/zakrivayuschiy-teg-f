@@ -25,7 +25,6 @@
   background-image: var(--background-image);
   background-size: cover;
   background-attachment: fixed;
-  overflow: hidden;
 }
 
 @supports (font-variation-settings: normal) {
@@ -292,8 +291,6 @@
   background-color: var(--background-color, rgb(255 255 255));
   inline-size: 100%;
   max-inline-size: 357px;
-  /*position: fixed;
-  inset: 0;*/
 }
 
 .dialog::backdrop {
