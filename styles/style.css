@@ -32,7 +32,7 @@
 }
 
 .page__section-size {
-  inline-size: var(--content-inline-size, min(100%, 700px));
+  inline-size: var(--content-inline-size);
 }
 
 /* Header */
@@ -42,8 +42,8 @@
   justify-items: center;
   margin-block: 100px;
   padding: 
-    clamp(7.5rem, 7.3571rem + .7143vw, 8rem) 
-    clamp(.875rem, -1.0268rem + 9.5089vw, 7.53125rem);
+    clamp(7.5rem, 7.324rem + 0.75vw, 8rem) 
+    clamp(0.875rem, -1.469rem + 10vw, 7.531rem);
   border: 2px solid currentColor;
   background-color: inherit;
   font-family: var(--font-family-accent, sans-serif, fantasy);
@@ -51,7 +51,8 @@
 
 .header__logo {
   padding-block-end: 20px;
-  font-size: clamp(3.0625rem, 2.7768rem + 1.4286vw, 4.0625rem);
+  font-size: clamp(3.063rem, 2.71rem + 1.5vw, 4.063rem);
+  font-weight: var(--font-weight-normal, 400);
 }
 
 .header__title {
