@@ -172,7 +172,7 @@
 
 .card__actions-container {
   display: flex;
-  justify-self: end;
+  justify-self: flex-end;
   align-items: center;
   gap: 6px;
   margin-inline: 25px;
