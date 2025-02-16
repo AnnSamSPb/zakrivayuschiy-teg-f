@@ -9,8 +9,8 @@
     --font-size-main: 18px;
     --font-size-decor: 14px;
 
-    --text-color: rgb(0 0 0);/*#000*/
-    --heart-fill-color: rgb(255 0 0);/*#f00*/
+    --text-color: rgb(0 0 0);
+    --heart-fill-color: rgb(255 0 0);
     --backdrop-color: rgb(0 0 0 / 0.75);
 
     --background-line-color: rgb(211 211 211);
@@ -34,7 +34,7 @@
             var(--background-gradient-end)
         );
 
-    --background-color: rgb(255 255 255); /*#fff*/
+    --background-color: rgb(255 255 255);
     --background-image:
         var(--background-vertical-lines),    
         var(--background-horizontal-lines),

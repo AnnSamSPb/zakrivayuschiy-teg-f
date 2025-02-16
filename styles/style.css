@@ -35,8 +35,6 @@
   inline-size: var(--content-inline-size);
 }
 
-/* Header */
-
 .header {
   display: grid;
   justify-items: center;
@@ -59,8 +57,6 @@
   font-size: clamp(0.875rem, 0.677rem + 0.85vw, 1.438rem);
   text-transform: uppercase;
 }
-
-/*Main*/
 
 .content {
   display: grid;
@@ -157,7 +153,7 @@
 }
 
 .card__filter-multi {
-  filter: hue-rotate(120deg) contrast(60%) sepia(40%) ;
+  filter: hue-rotate(120deg) contrast(60%) sepia(40%);
 }
 
 .card__text-container {
@@ -199,6 +195,10 @@
   border: 2px solid var(--text-color, rgb(0 0 0));
 }
 
+.like-icon {
+  display: block;
+}
+
 .card__like-button {
   display: flex;
   align-items: center;
@@ -207,10 +207,6 @@
   padding-block: 9px;
   min-inline-size: 130px;
   min-block-size: 38px;
-}
-
-.like-icon {
-  display: block;
 }
 
 .button {
@@ -272,8 +268,6 @@
 
 .floppy-icon {
   position: relative;
-  block-size: 21px;
-  inline-size: 21px;
   color: var(--background-color, rgb(255 255 255));
   mix-blend-mode: difference;
   z-index: 1;
@@ -302,8 +296,10 @@
 }
 
 .dialog__floppy-icon {
-  inline-size: 39px;
-  block-size: 39px;
+  position: relative;
+  width: 39px;
+  height: 39px;
+  flex-shrink: 0;
 }
 
 .dialog__text {
@@ -336,7 +332,8 @@
   }
 
   .floppy-icon {
-    block-size: 28px;
+    width: 28px;
+    height: 28px;
   }
 
   .dialog[open] {
