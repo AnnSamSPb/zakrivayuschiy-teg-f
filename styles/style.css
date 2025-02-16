@@ -203,9 +203,9 @@
 }
 
 .card__like-button {
-  display: flex;
+  /*display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;*/
   padding-inline: 17px;
   padding-block: 9px;
   min-inline-size: 130px;
