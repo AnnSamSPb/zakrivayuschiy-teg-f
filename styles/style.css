@@ -27,7 +27,7 @@
 
 @supports (font-variation-settings: normal) {
   .page {
-    font-family: var(--font-family-main);
+    font-family: var(--font-family-main, sans-serif);
   }
 }
 
@@ -46,7 +46,7 @@
     clamp(.875rem, -1.0268rem + 9.5089vw, 7.53125rem);
   border: 2px solid currentColor;
   background-color: inherit;
-  font-family: var(--font-family-accent, sans-serif);
+  font-family: var(--font-family-accent, sans-serif, fantasy);
 }
 
 .header__logo {
@@ -66,7 +66,6 @@
   justify-items: center;
   row-gap: 50px;
   padding-block-end: 100px;
-  font-variation-settings: 'wght' var(--font-weight-normal, 400);
 }
 
 .content__cards {
@@ -82,13 +81,12 @@
 }
 
 .card__title {
-  min-block-size: 33px;
   padding-inline: 10px;
   padding-block-start: 5px;
   padding-block-end: 3px;
   font-size: inherit;
   line-height: 1.21;
-  font-variation-settings: 'wght' var(--font-wght-bold, 700);
+  font-variation-settings: 'wght' var(--font-weight-bold, 700);
   border-block-end: 2px solid currentColor;
 }
 
@@ -103,7 +101,7 @@
   opacity: .5;
   inset-inline-end: clamp(0.6875rem, .4375rem + 1.25vw, 1.5625rem);
   inset-block-start: clamp(1.438rem, 1.402rem + .18vw, 1.563rem);
-  font-family: var(--font-family-accent, sans-serif);
+  font-family: var(--font-family-accent, sans-serif, fantasy);
   font-weight: var(--font-weight-normal, 400);
   font-size: var(--font-size-decor, 14px);
   line-height: 1;
@@ -218,7 +216,7 @@
   position: relative;
   border: 2px solid var(--text-color, rgb(0 0 0));
   background-color: var(--background-color, rgb(255 255 255));
-  font-family: var(--font-family-accent, sans-serif);
+  font-family: var(--font-family-accent, sans-serif, fantasy);
   font-weight: var(--font-weight-normal, 400);
   font-size: var(--font-size-decor, 14px);
   line-height: .9;
@@ -287,12 +285,11 @@
   border: 2px solid var(--text-color, rgb(0 0 0));
   padding-inline: 30px;
   padding-block: 30px;
-  overflow: hidden;
   background-color: var(--background-color, rgb(255 255 255));
   inline-size: 100%;
   max-inline-size: 357px;
-  position: fixed;
-  inset: 0;
+  /*position: fixed;
+  inset: 0;*/
 }
 
 .dialog::backdrop {
@@ -312,7 +309,7 @@
 
 .dialog__text {
   color: var(--text-color, rgb(0 0 0));
-  font-family: var(--font-family-accent, sans-serif);
+  font-family: var(--font-family-accent, sans-serif, fantasy);
   font-weight: var(--font-weight-normal, 400);
   font-size: 14px;
   line-height: 1.5;
