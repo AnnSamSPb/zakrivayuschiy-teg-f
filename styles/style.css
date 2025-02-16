@@ -10,8 +10,6 @@
 */
 /*Desktop First*/
 
-* {outline: 1px red solid;}
-
 .page {
   display: grid;
   justify-items: center;
