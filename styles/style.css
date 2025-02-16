@@ -67,7 +67,7 @@
 
 .content__cards {
   display: grid;
-  gap: 52px;
+  gap: 49px;
 }
 
 .card {
@@ -154,6 +154,10 @@
 
 .card__filter-multi {
   filter: hue-rotate(120deg) contrast(60%) sepia(40%);
+}
+
+.card__content-container {
+  border: 2px solid currentColor;
 }
 
 .card__text-container {
