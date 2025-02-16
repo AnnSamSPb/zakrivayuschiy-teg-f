@@ -1,8 +1,6 @@
 /* В этом файле будут храниться все значения переменных в исходном состоянии, а так же их изменения в зависимости от ширины устройства */
 :root {
-    /*--content-inline-size: min(100%, 700px);*/
     --content-inline-size: clamp(23.438rem, 16.285rem + 30.52vw, 43.75rem);
-
 
     --font-family-main: 'Inter-Variable';
     --font-family-accent: 'PressStart2P';

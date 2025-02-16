@@ -25,6 +25,7 @@
   background-image: var(--background-image);
   background-size: cover;
   background-attachment: fixed;
+  overflow: hidden;
 }
 
 @supports (font-variation-settings: normal) {
@@ -52,13 +53,13 @@
 }
 
 .header__logo {
-  padding-block-end: 20px;
+  margin-block-end: 20px;
   font-size: clamp(3.063rem, 2.71rem + 1.5vw, 4.063rem);
   font-weight: var(--font-weight-normal, 400);
 }
 
 .header__title {
-  font-size: clamp(.875rem, .7143rem + .8036vw, 1.4375rem);
+  font-size: clamp(0.875rem, 0.677rem + 0.85vw, 1.438rem);
   text-transform: uppercase;
 }
 
