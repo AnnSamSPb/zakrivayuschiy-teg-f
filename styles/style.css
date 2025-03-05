@@ -73,6 +73,7 @@
 .card {
   inline-size: 100%;
   background-color: var(--background-color, rgb(255 255 255));
+  border: 2px solid currentColor;
 }
 
 .card__title {
@@ -82,12 +83,12 @@
   font-size: inherit;
   line-height: 1.21;
   font-variation-settings: 'wght' var(--font-weight-bold, 700);
-  border: 2px solid currentColor;
 }
 
 .card__image-container {
   position: relative;
-  border: 2px solid currentColor;
+  border-block-start: 2px solid currentColor;
+  border-block-end: 2px solid currentColor;
 }
 
 .card__watermark {
@@ -154,10 +155,9 @@
   filter: hue-rotate(120deg) contrast(60%) sepia(40%);
 }
 
-.card__content-container {
-  border: 2px solid currentColor;
-  border-top: 2xp solid transparent;
-}
+/*.card__content-container {
+
+}*/
 
 .card__text-container {
   display: grid;
@@ -228,19 +228,19 @@
 
 .button::after {
   content: '';
-    position: absolute;
-    inset: 0;
-    display: block;
-    background-color: var(--text-color, rgb(0 0 0));
-    transition: transform var(--time-long, 0.5s) ease-in-out;
-    transform: scaleX(0);
-    transform-origin: left;
-    block-size: 100%;
-    inline-size: 100%;
+  position: absolute;
+  inset: 0;
+  display: block;
+  background-color: var(--text-color, rgb(0 0 0));
+  transition: transform var(--time-long, 0.5s) ease-in-out;
+  transform: scaleX(0);
+  transform-origin: left;
+  block-size: 100%;
+  inline-size: 100%;
 }
 
 .button:hover::after {
-    transform: scaleX(1);
+  transform: scaleX(1);
   }
 
 .button:focus,

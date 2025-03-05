@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="icon" href="./images/favicon.ico" sizes="any">
     <link rel="icon" href="./svg/favicon.svg" type="image/svg+xml">
     <link rel="apple-touch-icon" href="./images/mobile-icon.png">
@@ -28,7 +29,7 @@
             <img
               class="card__image"
               src="./images/image.png"
-              alt="Рисованный фудтрак около дерева ночью"
+              alt="Мультяшный фургон-фудтрак около дерева ночью"
               loading="lazy"
             >
           </div>
@@ -43,7 +44,7 @@
               </p>
             </div>
             <div class="card__actions-container">
-              <button class="card__icon-button" type="button" aria-label="Лайкнуть">
+              <button class="card__icon-button" type="button" aria-labelledby="like-button-01">
                 <svg
                   class="like-icon"
                   width="39"
@@ -90,7 +91,7 @@
                   />
                 </svg>
               </button>
-              <button class="card__like-button button" type="button" aria-label="Поставить лайк">
+              <button class="card__like-button button" type="button" aria-label="Поставить лайк" id="like-button-01">
                 <span class="button__text">Like</span>
               </button>
             </div>
@@ -670,7 +671,6 @@
           </p>
         </div>
         <form method="dialog" class="dialog-container">
-          
           <button class="button accept-button" type="submit">
             <span class="button__text">ok</span>
           </button>
